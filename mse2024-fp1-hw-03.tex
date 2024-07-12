@@ -83,7 +83,7 @@
 \usepackage{hyperref}
 \pagestyle{fancy}
 \fancyhead[R]{Студент(ка) Студентов(а)} % TODO введите ваше имя
-\fancyhead[L]{ИТМО MSE, ФП 2023, Дз 3}
+\fancyhead[L]{ИТМО MSE, ФП 2024, Дз 3}
 % ------------------------------------------------
 
 % Numbering
@@ -213,7 +213,7 @@
 
     \section*{Дз 3. Просто-типизированное лямбда-исчисление}
 
-    Глобальный минимум: 7б.
+    Глобальный минимум: 8б.
 
     \subsection{Нахождение наиболее общего типа}
 
@@ -286,13 +286,13 @@
     \[((\lambda x^{(\alpha \to \alpha) \to \beta \to (\alpha \to \alpha)}\ldotp x) \ap (\lambda x^{\alpha \to \alpha} \ap y^\beta\ldotp x) \ap (\lambda x^\alpha\ldotp x)):
     \beta \to \alpha \to \alpha\]
 
-    \paragraph{(1б)} $\term{S} \ap \term{K} \ap \term{K}$
+    \paragraph{(1б)} $\term{S} \ap \term{K} \ap \term{I}$
 
     \begin{proof}
         TODO % TODO
     \end{proof}
 
-    \paragraph{(1б)} $\term{S} \ap \term{K} \ap \term{I}$
+    \paragraph{(1б)} $\term{S} \ap \term{K} \ap \term{K}$
 
     \begin{proof}
         TODO % TODO
@@ -378,7 +378,7 @@
 
     \subsection{Построение деревьев вывода}
 
-    Локальный минимум: 1б.
+    Локальный минимум: 2б.
 
     Пример дерева с использованием пакета \texttt{proof}:
     %! suppress = EscapeAmpersand
@@ -405,7 +405,7 @@
         }
     }\]
 
-    \subsubsection{(1б)}
+    \subsubsection{(2б)}
 
     Постройте дерево вывода типа $(\alpha \to \beta \to \gamma) \to (\alpha \to \beta) \to \alpha \to \gamma$ для комбинатора $\term{S}$ в стиле Карри.
     В ответе достаточно одного дерева, промежуточные шаги не нужны.
