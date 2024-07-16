@@ -76,6 +76,8 @@
 \newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
 \newcommand{\eqbeta}{=_\beta}
 \newcommand{\eqeta}{=_\eta}
+\newcommand{\tlist}[1]{\term{[}#1\term{]}} % list-term
+\renewcommand{\emph}[1]{{\color{blue} \textit{#1}}}
 % ------------------------------------------------
 
 % Head
@@ -293,7 +295,7 @@
     \paragraph{(1б)}
 
     $\term{minus}$: если $n$ и $m$ ~--- числа Чёрча, то $\term{minus}~n~m = k$,
-    если $\term{plus}~m~k = n$, и $\term{minus}~n~m = 0$, если такого $k$
+    если $\term{plus}~m~k = n$, и $\term{minus}~n~m = \term{0}$, если такого $k$
     нет.
 
     \begin{proof}
@@ -331,7 +333,7 @@
 
     \paragraph{(0.5б)}
 
-    Напишите функцию $\term{sum}$, суммирующий элементы списка: $\term{sum} \ap [1, 2, 3] \eqbeta 6$.
+    Напишите функцию $\term{sum}$, суммирующий элементы списка: $\term{sum} \ap \tlist{\term{1}, \term{2}, \term{3}} \eqbeta \term{6}$.
 
     \begin{proof}
         TODO % TODO
@@ -339,7 +341,7 @@
 
     \paragraph{(0.5б)}
 
-    Напишите функцию $\term{length}$, вычисляющий длину списка: $\term{length} \ap [1, 2] \eqbeta 2$
+    Напишите функцию $\term{length}$, вычисляющий длину списка: $\term{length} \ap \tlist{\term{1}, \term{2}} \eqbeta \term{2}$
 
     \begin{proof}
         TODO % TODO
@@ -357,7 +359,7 @@
 
     \subsubsection{(2б)}
 
-    Напишите функцию $\term{tail}$, которая сильно нормализуемо возвращает хвост списка, то есть список без первого элемента: например, $\term{tail}~[~] = [~]$ и $\term{tail}~[5,10,13] = [10, 13]$.
+    Напишите функцию $\term{tail}$, которая сильно нормализуемо возвращает хвост списка, то есть список без первого элемента: например, $\term{tail}~\tlist{~} = \tlist{~}$ и $\term{tail}~\tlist{\term{5},\term{10},\term{13}} = \tlist{\term{10}, \term{13}}$.
 
     \begin{proof}
         TODO % TODO
