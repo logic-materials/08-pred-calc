@@ -1,0 +1,220 @@
+%! suppress = Makeatletter
+%! suppress = TooLargeSection
+%! suppress = MissingLabel
+\documentclass{article}
+
+% Fields
+\usepackage{geometry}
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+% ------------------------------------------------
+
+% Graphics
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{blkarray}
+\usepackage{graphicx}
+% ------------------------------------------------
+
+% Math
+\usepackage{amsmath, amsfonts}
+\usepackage{amssymb}
+\usepackage{proof}
+\usepackage{mathrsfs}
+% Crossed-out symbols
+% https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
+\usepackage[makeroom]{cancel}
+\usepackage{mathtools}
+% ------------------------------------------------
+
+% Additional font sizes
+% https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F
+\usepackage{moresize}
+% Additional colors
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+% \texttimes
+\usepackage{textcomp}
+% ------------------------------------------------
+
+% Language
+\usepackage[utf8] {inputenc}
+\usepackage[T2A] {fontenc}
+\usepackage[english, russian] {babel}
+\usepackage{indentfirst, verbatim}
+\usetikzlibrary{cd, babel}
+% ------------------------------------------------
+
+% Fonts
+\usepackage{stmaryrd}
+\usepackage{cmbright}
+\usepackage{wasysym}
+% ------------------------------------------------
+
+% Code
+% https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx
+% Colored, requires --shell-escape compiling option
+% \usepackage{minted}
+% \setminted{xleftmargin=\parindent, autogobble, escapeinside=\#\#}
+\usepackage{listings}
+% ------------------------------------------------
+
+% Custom envs
+% https://tex.stackexchange.com/questions/371286/draw-a-horizontal-line-in-latex
+\newenvironment{proof}{\subparagraph{\hspace{-1em}Решение:\newline}}{\par\noindent\rule{\textwidth}{0.4pt}}
+% ------------------------------------------------
+
+% Custom commands
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\step}{\rightsquigarrow}
+\newcommand{\term}[1]{\mathbf{#1}}
+\newcommand{\ap}{~}
+\newcommand{\termdef}{\coloneqq}
+\newcommand{\subst}[3]{\left[#2 \mapsto #3 \right] #1}
+\newcommand{\eqbeta}{=_\beta}
+\newcommand{\eqeta}{=_\eta}
+\newcommand{\tlist}[1]{\term{[}#1\term{]}} % list-term
+\renewcommand{\emph}[1]{{\color{blue} \textit{#1}}}
+% ------------------------------------------------
+
+% Head
+\usepackage{fancybox,fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\fancyhead[R]{Студент(ка) Студентов(а)} % TODO введите ваше имя
+\fancyhead[L]{ИТМО MSE, ФП 2024, Дз 1}
+% ------------------------------------------------
+
+% Numbering
+% https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
+\makeatletter
+\renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
+\renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
+% https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
+\setcounter{secnumdepth}{4}
+\makeatother
+% ------------------------------------------------
+
+\begin{document}
+
+    \section*{Дополнительные задания 2. Больше лямбда-исчисления}
+
+    \subsection{Задачи}
+
+    \subsubsection{(1б)}
+
+    Известно два определения увеличения числа Чёрча на единицу:
+    $$\begin{array}{l}
+        \mathbf{suc} := \lambda n~s~z\ldotp s~(n~s~z) \\
+        \mathbf{suc'} := \lambda n~s~z\ldotp n~s~(s~z) \\
+    \end{array}$$
+    
+    По аналогии с $\mathbf{suc}$ можно
+    построить функцию $\mathbf{cons}$ "--- терм, который дописывает в начало
+    списка новый элемент. Что получится по аналогии с $\mathbf{suc'}$?
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1.5б)}
+
+    Задайте лямбда-терм, который принимает на вход список и сильно
+    нормализуемо возвращает результат его разворота:
+    $$\mathbf{reverse}~[1, 3, 6, 7] = [7, 6, 3, 1]$$
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1б)}
+
+    Реализуйте функцию, которая принимает на вход $f$ и $n$ и возвращает
+    $$\prod_{i = 0}^{n-1} f(i)$$
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1б)}
+
+    Представьте в кодировании по Чёрчу бинарное дерево
+    \begin{lstlisting}[language=Haskell]
+    data Tree a = Leaf | Node (Tree a) a (Tree a)
+    \end{lstlisting}
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1.5б)}
+
+    Даны двоичные числа с ведущими нулями в лямбда-исчислении
+    (\emph{закодированные по Чёрчу}):
+    $$\begin{array}{ll}
+        \mathbf{ZB}&:= \lambda~f_0~f_1~z.~z \\
+        \mathbf{IB}&:= \lambda~n~f_0~f_1~z.~f_1~(n~f_0~f_1~z) \\
+        \mathbf{OB}&:= \lambda~n~f_0~f_1~z.~f_0~(n~f_0~f_1~z)
+    \end{array}$$
+    \textbf{ZB} "--- конструктор нуля, \textbf{IB} "--- конструктор,
+    принимающий $n$ и возвращающий $2 \cdot n + 1$, \textbf{OB} "---
+    конструктор, принимающий $n$ и возвращающий $2 \cdot n$. Таким
+    образом, последовательность \textbf{IB} и \textbf{OB} кодирует биты
+    некоторого числа.
+
+    У этих чисел есть небольшая проблема: они поддерживают несколько по смыслу
+    идентичных, но структурно различающихся способов записи каждого числа,
+    поскольку \textbf{ZB}, \textbf{OB ZB}, \textbf{OB (OB ZB)} и так далее все
+    могут кодировать число 0.
+
+    Несколько примеров чисел в таком кодировании:
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            0 & \texttt{0} & \textbf{ZB} \\
+            1 & \texttt{1} & \textbf{IB ZB} \\
+            2 & \texttt{10} & \textbf{OB (IB ZB)} \\
+            3 & \texttt{11} & \textbf{IB (IB ZB)} \\
+            4 & \texttt{100} & \textbf{OB (OB (IB ZB)} \\
+            5 & \texttt{101} & \textbf{IB (OB (IB ZB)} \\
+            6 & \texttt{110} & \textbf{OB (IB (IB ZB)} \\
+            003 & \texttt{0011} & \textbf{IB (IB (OB (OB ZB)))} \\
+            0002 & \texttt{00010} & \textbf{OB (IB (OB (OB (OB ZB))))} \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Напишите функцию, которая находит количество битов в таком числе, считая и
+    ведущие нули.
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1.5б)}
+    Напишите функцию, которая находит количество единичных битов в двоичном числе.
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1.5б)}
+    Напишите функцию, которая находит количество битов в таком числе, не считая ведущие нули.
+    
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+
+    \subsubsection{(1.5б)}
+    Напишите функцию, которая прибавляет единицу к двоичному числу.
+
+    \begin{proof}
+        TODO % TODO
+    \end{proof}
+    
+\end{document}
