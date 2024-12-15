@@ -92,7 +92,7 @@
 % https://tex.stackexchange.com/questions/80113/hide-section-numbers-but-keep-numbering
 \makeatletter
 \renewcommand\thesubsection{Блок \@arabic\c@subsection.\hspace{-0.8em}}
-\renewcommand\thesubsubsection{Задание \@arabic\c@subsection.\@arabic\c@subsubsection\hspace{-0.8em}}
+\renewcommand\thesubsubsection{Задание \@arabic\c@subsubsection\hspace{-0.8em}}
 % https://tex.stackexchange.com/questions/327689/numbering-subsubsections-with-letters
 \renewcommand\theparagraph{\alph{paragraph})\hspace{-0.8em}}
 % https://tex.stackexchange.com/questions/129208/numbering-paragraphs-in-latex
@@ -103,8 +103,6 @@
 \begin{document}
 
     \section*{Дополнительные задания 3. Просто-типизированное лямбда-исчисление}
-
-    \subsection{Задачи}
 
     \subsubsection{(1б)}
 
