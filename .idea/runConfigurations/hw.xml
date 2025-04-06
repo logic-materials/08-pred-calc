@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="hw01-dop" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+  <configuration default="false" name="hw" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
     <texify>
       <compiler>PDFLATEX</compiler>
       <compiler-path />
@@ -8,13 +8,14 @@
       <viewer-command />
       <compiler-arguments>--shell-escape</compiler-arguments>
       <envs />
+      <expand-macros-in-environment-variables>false</expand-macros-in-environment-variables>
       <before-run-command />
-      <main-file>$PROJECT_DIR$/mse2024-fp1-dop-01.tex</main-file>
+      <main-file>$PROJECT_DIR$/pred-hw.tex</main-file>
       <output-path>$PROJECT_DIR$</output-path>
       <auxil-path>{projectDir}/auxil</auxil-path>
       <compile-twice>false</compile-twice>
       <output-format>PDF</output-format>
-      <latex-distribution>PROJECT_SDK</latex-distribution>
+      <latex-distribution>TEXLIVE</latex-distribution>
       <has-been-run>true</has-been-run>
       <bib-run-config>[]</bib-run-config>
       <makeindex-run-config>[]</makeindex-run-config>

@@ -85,7 +85,7 @@
 \usepackage{hyperref}
 \pagestyle{fancy}
 \fancyhead[R]{Студент(ка) Студентов(а)} % TODO введите ваше имя
-\fancyhead[L]{ИТМО MSE, ФП 2024, Дз 1}
+\fancyhead[L]{ИТМО MSE, Логика 2025, Дз 8}
 % ------------------------------------------------
 
 % Numbering
@@ -214,186 +214,102 @@
     \newpage
 
 
-    \section*{Дз 1. Лямбда-исчисление}
+    \section*{Дз 8. Исчисление предикатов}
 
-    Глобальный минимум: 8б.
+    Глобальный минимум: 5б.
 
-    \subsection{Синтаксис и семантика лямбда-исчисления}
+    \begin{description}
+        \item[A1-A11] Такие же, как в исчислении высказываний
+        \item[A12] $\Gamma\vdash(\forall x\ldotp A) \to A[x \coloneqq \tau]$, где
+        $\tau$ --- произвольный терм
+        \item[A13] $\Gamma\vdash A[x \coloneqq \tau] \to \exists x\ldotp A$, где
+        $\tau$ --- произвольный терм
+        \item[A14] $\Gamma\vdash(\forall x\ldotp A \to B) \to (A \to \forall x \ldotp B)$,
+        где $x \not\in \mathrm{FV}(A)$
+        \item[A15] $\Gamma\vdash(\forall x\ldotp A \to B) \to (\exists x\ldotp A) \to B$,
+        где $x \not\in \mathrm{FV}(B)$
+    \end{description}
+    \[\begin{array}{cc}
+          \infer[\text{MP}]{\Gamma\vdash B}{
+              \Gamma\vdash A
+              & \Gamma\vdash A \to B
+          } &
+          \infer[\text{Gen}]{\Gamma\vdash \forall x\ldotp A}{
+              \Gamma\vdash A
+              & x \not\in \mathrm{FV}(\Gamma)
+          } \\
+          \infer[\text{B}\forall]{
+              \Gamma\vdash A \to \forall x\ldotp B
+          }{
+              \Gamma\vdash A \to B
+              & x \not\in \mathrm{FV}(A)
+              & x \not\in \mathrm{FV}(\Gamma)
+          } &
+          \infer[\text{B}\exists]{
+              \Gamma\vdash (\exists x\ldotp A) \to B
+          }{
+              \Gamma\vdash A \to B
+              & x \not\in \mathrm{FV}(B)
+              & x \not\in \mathrm{FV}(\Gamma)
+          }
+    \end{array}\]
 
-    Локальный минимум: 4б.
-
-    \subsubsection{(1б)}
-
-    Уберите все лишние скобки из выражений.
-
-    Подсказка: можно воспользоваться представлением терма как дерева.
-
-    \paragraph{}
-
-    $(\lambda x\ldotp (x~(x)))$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{}
-
-    $(\lambda x~y \ldotp f~((g~x)~y))$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{}
-
-    $x ~ (\lambda y\ldotp (\lambda z \ldotp x~y~z))$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \subsubsection{(1б)}
-
-    Найдите все свободные переменные, а также обозначьте, к какому связывателю относится каждая связанная (это удобнее всего сделать с помощью индексов, например, $\lambda x_1\ldotp x_1$).
-
-    \paragraph{}
-
-    $\lambda x \ldotp \lambda x \ldotp x~y$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{}
-
-    $\lambda z \ldotp (\lambda x \ldotp x)~(x~z)$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{}
-
-    $(\lambda x\ldotp y~y~(\lambda y\ldotp x~((\lambda z\ldotp z~y~x)~(\lambda x\ldotp z~x))))$
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \subsubsection{}
-
-    \paragraph{(1б)}
-
-    Покажите, что $\comb{K}^* \eqbeta \comb{K}~\comb{I}$.
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{(1б)}
-
-    Покажите, что $\comb{B} \eqbeta \comb{S}~(\comb{K}~\comb{S})~\comb{K}$, расписывая и нумеруя промежуточные шаги.
-
-    Подсказка: не спешите сразу раскрывать все определения.
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \subsubsection{}
-
-    Осуществите подстановку и приведите к нормальной форме~--- форме, в которой не осталось редексов, указывая при этом основные шаги.
-
-    \paragraph{(1б)}
-
-    $x \termdef \comb{S}$ в $x~(\lambda z~x\ldotp z~x)~(\lambda z~y~x\ldotp x)~x$.
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \paragraph{(1б)}
-
-    $x \termdef \comb{K}$ и $y \termdef \comb{B}$ в $y~(\comb{K}~(\lambda z\ldotp x~x~(x~z~x))~y)~(\lambda x\ldotp x~x~x)~\comb{I}$.
-
-    \begin{proof}
-        TODO % TODO
-    \end{proof}
-
-    \subsection{Программирование в лямбда-исчислении}
-
-    Локальный минимум: 3б.
+    \subsection{}
 
     \subsubsection{(1б)}
 
-    Задайте лямбда-терм $\textbf{or}~b_1~b_2$, который вычисляет дизъюнкцию двух логических величин.
+    $(\exists x\ldotp P(x) \lor Q(x)) \to (\exists x\ldotp P(x)) \lor (\exists x\ldotp Q(x))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
     \end{proof}
 
     \subsubsection{(1б)}
 
-    Задайте лямбда-терм $\term{mult}~a~b$, перемножающий два числа Чёрча, и лямбда-терм $\term{pow}~a~b$, который вычисляет $a^b$.
+    $(P \to \forall x Q(x))\to\forall x(P \to Q(x))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
     \end{proof}
 
     \subsubsection{(1б)}
 
-    Задайте лямбда-терм $\term{isZero}$, который возвращает $\term{true}$, если подать $\term{0}$, и $\term{false}$ в противном случае.
+    $(\forall x~y\ldotp P(x) \to P(y)) \to (\exists x\ldotp P(x)) \to (\forall y\ldotp P(y))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
     \end{proof}
 
     \subsubsection{(1б)}
 
-    Скорее всего, ваш любимый язык программирования имеет поддержку функций высших порядков.
-    Представьте, что в вашем языке нет структур, классов и т.д., и закодируйте на нём пары в стиле чистого лямбда-исчисления (\emph{не забывайте про каррирование}!).
-
-    Как известно, котики полностью описываются двумя параметрами: именем и мурлычностью.
-    Реализуйте библиотеку функций для работы с котиками, используя пары по Чёрчу как низкоуровневый примитив.
-    Нужно написать функции: для создания котика, просмотра имени и мурлычности по котику.
-    А так же реализовать функцию ``почесать'', которая по котику будет возвращать котика повышенной мурлычности.
-
-    Если у вас статически типизированный язык программирования:
-    \begin{itemize}
-        \item Вам полагается дополнительный балл в случае успеха.
-        \item Достаточно поддержать только хранение интов.
-        \item Напишите вручную типы основных сущностей, для остального можно воспользоваться механизмом вывода типов вашего языка: \texttt{auto} в C++, \texttt{var} в Java\ldots
-    \end{itemize}
+    $(\exists x\ldotp P(x) \to Q(x)) \to (\forall x\ldotp P(x)) \to (\exists x\ldotp Q(x))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
     \end{proof}
 
     \subsubsection{(1б)}
 
-    Задайте лямбда-терм $\term{divides3}~n$, который возвращает $\term{true}$, если $n$ делится на 3 без остатка, и $\term{false}$ в противном случае.
+    $(\forall x \ldotp \neg P(x)) \leftrightarrow \neg (\exists x \ldotp P(x))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
     \end{proof}
 
-    \subsubsection{(2б)}
+    \subsubsection{(1б)}
 
-    Задайте лямбда-терм $\term{pred}~n$, который находит предыдущее число Чёрча.
-
-    Подсказка:
-    \begin{lstlisting}[language=Python]
-    def pred(n):
-      prd = 0
-      cur = 0
-      for i in range(0, n):
-        prd = cur
-        cur = cur + 1
-      return prd
-    \end{lstlisting}
+    $(\exists x \ldotp \neg P(x)) \leftrightarrow \neg (\forall x \ldotp P(x))$
 
     \begin{proof}
-        TODO % TODO
+        TODO % todo
+    \end{proof}
+
+    \subsubsection{(1б)}
+
+    $(\exists y\ldotp \neg P(x)) \to \exists x\ldotp \forall y\ldotp P(x) \to P(y)$
+
+    \begin{proof}
+        TODO % todo
     \end{proof}
 
 \end{document}
